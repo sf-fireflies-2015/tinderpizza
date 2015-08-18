@@ -8,7 +8,7 @@ autoload :Pizza, settings.root + '/models/pizza'
 Dir[settings.root + '/controllers/*.rb'].each {|file| require file }
 
 get '/' do
-  @pizzas = ['pepperoni','margherita','mushroom and garlic']
+  @pizzas = Pizza.all.order(:price_cents => :asc).limit(2)
   erb :home
 end
 

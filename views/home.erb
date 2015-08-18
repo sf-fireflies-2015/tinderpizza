@@ -2,7 +2,7 @@
 <h2>Top Pizzas</h2>
   <ul>
 <% @pizzas.each do |pizza| %>
-   <li><%= pizza %></li>
+   <li><%= pizza.name %> $<%= pizza.price_cents * 0.01 %></li>
 <% end %>
 </ul>
 

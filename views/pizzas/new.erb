@@ -1,0 +1,28 @@
+
+
+
+<form action="/pizzas" method="post">
+
+<% if @pizza.errors[:name].any? %>
+  <div style="color: red;"><%= @pizza.errors[:name].first %></div>
+<% end %>
+
+  <div>Name: <input name="name" value="<%= @pizza.name %>"/></div>
+  <div>
+  
+<% if @pizza.errors[:diameter_inches].any? %>
+  <div style="color: red;"><%= @pizza.errors[:diameter_inches].first %></div>
+<% end %>
+
+  Diameter: <input name="diameter_inches" value="<%= @pizza.diameter_inches %>"/>
+
+  </div>
+  <div>
+
+<% if @pizza.errors[:price_cents].any? %>
+  <div style="color: red;"><%= @pizza.errors[:price_cents].first %></div>
+<% end %>
+
+  Price: <input name="price_cents" value="<%= @pizza.price_cents %>"/></div>
+  <input type="submit"/>
+</form>
