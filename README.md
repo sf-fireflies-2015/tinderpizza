@@ -40,5 +40,7 @@ end
 * Added migration ``rake db:create_migration NAME=create_pizzas``
 * Added [Validations](http://guides.rubyonrails.org/active_record_validations.html)
 * Added ``db/seeds.rb`` so ``rake db:seed`` works
-
+* Added footer and nav to layout
+* Added static ``/about_us`` route
+* Added ``controllers/pizza_controller.rb``
 
