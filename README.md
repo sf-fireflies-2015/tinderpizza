@@ -44,3 +44,12 @@ end
 * Added static ``/about_us`` route
 * Added ``controllers/pizza_controller.rb``
 
+# Nested Routes
+* Toppings Belong to Pizzas
+* ``controlers/topping_controller.rb``
+* ``views/toppings``
+
+# Secret Random Keys
+* ``models/pizza.rb`` - ``before_create``
+* ``db/migrate/XXX_add_secret_key_to_pizzas.rb``
+
