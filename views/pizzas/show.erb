@@ -7,3 +7,12 @@
       <%= @pizza.diameter_inches %> inch
      </div>
   </div>
+
+  <div>
+  <a href="/pizzas/<%= @pizza.id %>/edit">Edit Pizza</a>
+  | <form action="/pizzas/<%= @pizza.id %>/delete" method="post">
+    <input type="submit" value="Delete Pizza"/>
+  </form>
+
+  
+  </div>
