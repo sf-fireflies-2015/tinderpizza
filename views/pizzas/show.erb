@@ -6,6 +6,11 @@
      <div>
       <%= @pizza.diameter_inches %> inch
      </div>
+     <ul>
+       <% @pizza.toppings.each do |topping| %>
+         <li><%= topping.name %></li>
+       <% end %>
+     </ul>
   </div>
 
   <div>
