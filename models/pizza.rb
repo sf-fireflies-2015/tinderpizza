@@ -1,4 +1,7 @@
 class Pizza < ActiveRecord::Base
+
+  has_many :toppings
+
   validates :name, presence: true
 
   validates :price_cents, 
