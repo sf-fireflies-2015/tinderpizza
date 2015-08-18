@@ -1,8 +1,8 @@
 
 <% @pizzas.each do |pizza| %>
-  <div><b><%= pizza.name %></b>
+  <div><b><a href="/pizzas/<%= pizza.id %>"><%= pizza.name %></a></b>
      <div>
-      $<%= pizza.price_cents / 0.01 %>
+      $<%= pizza.price_cents * 0.01 %>
      </div>
   </div>
 <% end %>
