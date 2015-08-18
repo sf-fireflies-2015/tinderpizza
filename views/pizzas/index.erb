@@ -1,0 +1,9 @@
+
+<% @pizzas.each do |pizza| %>
+  <div><b><%= pizza.name %></b>
+     <div>
+      $<%= pizza.price_cents / 0.01 %>
+     </div>
+  </div>
+<% end %>
+
