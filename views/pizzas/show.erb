@@ -6,10 +6,16 @@
      <div>
       <%= @pizza.diameter_inches %> inch
      </div>
+     <ul>
+       <% @pizza.toppings.each do |topping| %>
+         <li><a href="/pizzas/<%= @pizza.id %>/toppings/<%= topping.id %>"><%= topping.name %></a></li>
+       <% end %>
+     </ul>
   </div>
 
   <div>
-  <a href="/pizzas/<%= @pizza.id %>/edit">Edit Pizza</a>
+  <a href="/pizzas/<%= @pizza.id %>/toppings/new">Add Topping</a>
+  | <a href="/pizzas/<%= @pizza.id %>/edit">Edit Pizza</a>
   | <form action="/pizzas/<%= @pizza.id %>/delete" method="post">
     <input type="submit" value="Delete Pizza"/>
   </form>

@@ -3,6 +3,7 @@ require "sinatra/activerecord"
 
 set :database, {adapter: "sqlite3", database: "db/tinderpizza.sqlite3"}
 
+autoload :Topping, settings.root + '/models/topping'
 autoload :Pizza, settings.root + '/models/pizza'
 
 Dir[settings.root + '/controllers/*.rb'].each {|file| require file }

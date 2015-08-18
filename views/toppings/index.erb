@@ -1,0 +1,11 @@
+<h1>Pizza <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
+
+<% @toppings.each do |topping| %>
+  <div><b><a href="/pizzas/<%= @pizza.id %>/toppings/<%= topping.id %>"><%= topping.name %></a></b>
+     <div>
+      <%= topping.calories %> calories
+     </div>
+  </div>
+<% end %>
+
+

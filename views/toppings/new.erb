@@ -1,4 +1,4 @@
-
+<h1>Pizza <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
 
 <form action="/pizzas/<%= @pizza.id %>/toppings" method="post">
   <div>
@@ -7,12 +7,12 @@
 <% end %>
     <div>Name: <input name="name" value="<%= @topping.name %>"/></div>
   </div>
-  
+
   <div>
 <% if @topping.errors[:calories].any? %>
     <div style="color: red;"><%= @topping.errors[:calories].first %></div>
 <% end %>
-    <div>Diameter: <input name="calories" value="<%= @topping.calories %>"/></div>
+    <div>Calories: <input name="calories" value="<%= @topping.calories %>"/></div>
   </div>
 
   <input type="submit"/>
