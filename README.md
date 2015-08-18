@@ -39,3 +39,6 @@ end
    - and ``rake console`` (handy!)
 * Added migration ``rake db:create_migration NAME=create_pizzas``
 * Added [Validations](http://guides.rubyonrails.org/active_record_validations.html)
+* Added ``db/seeds.rb`` so ``rake db:seed`` works
+
+
