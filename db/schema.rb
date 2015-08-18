@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150818180650) do
     t.string  "name"
     t.integer "diameter_inches"
     t.integer "price_cents"
+    t.string  "secret_key"
   end
 
   create_table "toppings", force: :cascade do |t|
