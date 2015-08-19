@@ -5,7 +5,12 @@
 | <a href="/pizzas">All Pizzas</a>
 | <a href="/pizzas/new">New Pizza</a>
 | <a href="/about_us">About</a>
+| <a href="/login">Login</a>
+| <a href="/register">Register</a>
+| <a href="/logout">Logout</a>
 </nav>
+
+<div class="flash"><%= flash[:message] %></div>
 
 <%= yield %>
 
