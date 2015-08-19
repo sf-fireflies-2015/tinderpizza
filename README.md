@@ -53,3 +53,12 @@ end
 * ``models/pizza.rb`` - ``before_create``
 * ``db/migrate/XXX_add_secret_key_to_pizzas.rb``
 
+# 2.1.3.A Controller Testing
+* [RSpec to test Sinatra](http://recipes.sinatrarb.com/p/testing/rspec)
+* Need to support different databases for testing and development
+  * Use ``RACK_ENV``
+  * Look at the ``set :database`` line in ``tinderpizza.rb``
+  * ``RACK_ENV=test rake db:create``
+  * ``RACK_ENV=test rake db:migrate``
+* Create specs in folders underneath ``./spec`` folder
+* ``bundle exec rspec``

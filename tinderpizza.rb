@@ -1,7 +1,7 @@
 require 'sinatra'
 require "sinatra/activerecord"
 
-set :database, {adapter: "sqlite3", database: "db/tinderpizza.sqlite3"}
+set :database, {adapter: "sqlite3", database: "db/tinderpizza_#{settings.environment}.sqlite3"}
 
 autoload :Topping, settings.root + '/models/topping'
 autoload :Pizza, settings.root + '/models/pizza'
