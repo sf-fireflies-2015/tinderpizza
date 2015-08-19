@@ -6,6 +6,11 @@ namespace :db do
   end
 end
 
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
 
 desc "run irb console"
 task :console, :environment do |t, args|
