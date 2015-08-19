@@ -1,0 +1,26 @@
+
+<% if @form_error %>
+<div><%= @form_error %></div>
+<% end %>
+
+<form action="/register" method="post">
+  <div>
+    <% if @user.errors[:login].any? %>
+      <div><%= @user.errors[:login].first %></div>
+    <% end %>
+    <div>Login: <input name="login" value="<%= @user.login %>"/></div>
+  </div>
+  <div>
+    <% if @user.errors[:password].any? %>
+      <div><%= @user.errors[:password].first %></div>
+    <% end %>
+    <div>Password: <input type="password" name="password" value=""/></div>
+  </div>
+  <div>
+    <% if @user.errors[:password_confirmation].any? %>
+      <div><%= @user.errors[:password_confirmation].first %></div>
+    <% end %>
+    <div>Confirm: <input type="password" name="password_confirmation" value=""/></div>
+  </div>
+  <input type="submit" value="Register"/>
+</form>

@@ -1,0 +1,12 @@
+<% if @form_error %>
+<div><%= @form_error %></div>
+<% end %>
+<form action="/login" method="post">
+  <div>
+    <div>Login: <input name="login" value="<%= @login %>"/></div>
+  </div>
+  <div>
+    <div>Password: <input type="password" name="password" value=""/></div>
+  </div>
+  <input type="submit" value="Login"/>
+</form>
