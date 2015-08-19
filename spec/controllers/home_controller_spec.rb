@@ -1,6 +1,6 @@
 describe "Home Controller" do
 
-  describe "/" do
+  describe "GET /" do
 
     it 'should be ok' do
       get '/'
