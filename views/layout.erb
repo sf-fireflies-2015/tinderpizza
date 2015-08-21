@@ -1,19 +1,51 @@
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/materialize.css">
+<link rel="stylesheet" type="text/css" href="/css/tinderpizza.css">
+<title>Tinder Pizza</title>
+</head>
 <body>
-<nav>
-<a href="/">Tinder Pizza</a> 
-| <a href="/pizzas">All Pizzas</a>
-| <a href="/pizzas/new">New Pizza</a>
-| <a href="/about_us">About</a>
-| <a href="/login">Login</a>
-| <a href="/register">Register</a>
-| <a href="/logout">Logout</a>
-</nav>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo hide-on-med-and-down">Tinder Pizza</a>
+      <ul id="nav-mobile" class="right">
+        <li><a href="/pizzas">All Pizzas</a></li>
+        <li><a href="/about_us">About</a></li>
+        <% if auth_logged_in? %>
+          <li><a href="/logout">Logout</a></li>
+        <% else %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
-<div class="flash"><%= flash[:message] %></div>
 
-<%= yield %>
+<div class="row">
+  <%= yield %>
+</div>
 
-<footer><small>What should go in a footer?</small></footer>
+
+<footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2015 Copyright SF Fireflies
+      <a class="grey-text text-lighten-4 right" href="https://github.com/sf-fireflies-2015">SF Fireflies 2015</a>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
+
+  <script src="/js/materialize.js"></script>
+
+  <script src="/js/tinderpizza.js"></script>
+
+
+  <%  unless flash[:message].nil?  %>
+    <script> Materialize.toast('<%= flash[:message].gsub("'", "\\'") %>', 4000) // 4000 is the duration of the toast
+  </script>
+  <% end %>
+
 </body>
 </html>

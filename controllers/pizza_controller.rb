@@ -28,9 +28,9 @@ post '/pizzas/:id' do
   id = params[:id]
   @pizza = Pizza.find(id)
 
-  @pizza.name = params[:name]
-  @pizza.price_cents = params[:price_cents]
-  @pizza.diameter_inches = params[:diameter_inches]
+  # Using params helper
+  @pizza.assign_attributes(params_whitelist [:name, :price_cents, :diameter_inches])
+
 
   if @pizza.save
     redirect "/pizzas/#{@pizza.id}"
@@ -42,9 +42,8 @@ end
 post '/pizzas' do
   @pizza = Pizza.new
 
-  @pizza.name = params[:name]
-  @pizza.price_cents = params[:price_cents]
-  @pizza.diameter_inches = params[:diameter_inches]
+  # Using params helper
+  @pizza.assign_attributes(params_whitelist [:name, :price_cents, :diameter_inches])
 
   if @pizza.save
     redirect "/pizzas/#{@pizza.id}"
@@ -56,6 +55,7 @@ end
 post '/pizzas/:id/delete' do
   id = params[:id]
   @pizza = Pizza.find(id)
+  flash[:message]= "#{@pizza.name} deleted"
   @pizza.destroy
   redirect "/pizzas"
 end

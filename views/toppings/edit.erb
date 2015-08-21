@@ -19,5 +19,8 @@
     <div>Calories: <input name="calories" value="<%= @topping.calories %>"/></div>
   </div>
 
-  <input type="submit"/>
+  <div class="row">
+    <input class="btn" type="submit" name="action" value="Save"/>
+    <a class="btn" href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>">Cancel<a/>
+  </div>
 </form>

@@ -30,8 +30,8 @@ post '/pizzas/:pizza_id/toppings/:id' do
   @pizza = Pizza.find(params[:pizza_id])
   @topping = @pizza.toppings.find(params[:id])
 
-  @topping.name = params[:name]
-  @topping.calories = params[:calories]
+  # Using params helper
+  @topping.assign_attributes(params_whitelist [:name, :calories])
 
   if @topping.save
     redirect "/pizzas/#{@pizza.id}/toppings/#{@topping.id}"
@@ -44,11 +44,12 @@ post '/pizzas/:pizza_id/toppings' do
   @pizza = Pizza.find(params[:pizza_id])
   @topping = @pizza.toppings.new
 
-  @topping.name = params[:name]
-  @topping.calories = params[:calories]
+  # Using params helper
+  @topping.assign_attributes(params_whitelist [:name, :calories])
 
   if @topping.save
-    redirect "/pizzas/#{@pizza.id}/toppings/#{@topping.id}"
+    flash[:message] = 'Topping Added'
+    redirect "/pizzas/#{@pizza.id}"
   else
     erb :'toppings/new'
   end  
@@ -57,6 +58,7 @@ end
 post '/pizzas/:pizza_id/toppings/:id/delete' do
   @pizza = Pizza.find(params[:pizza_id])
   @topping = @pizza.toppings.find(params[:id])
+  flash[:message] = "#{@topping.name} removed"
   @topping.destroy
   redirect "/pizzas/#{@pizza.id}/toppings"
 end
