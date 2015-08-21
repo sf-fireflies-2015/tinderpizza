@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tinderpizza_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: tinderpizza_test
+  pool: 5
+
+
