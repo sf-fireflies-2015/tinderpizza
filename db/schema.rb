@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150819185537) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "pizzas", force: :cascade do |t|
     t.string  "name"
     t.integer "diameter_inches"

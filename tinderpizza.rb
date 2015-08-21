@@ -8,7 +8,6 @@ configure :development do
   BetterErrors.application_root = __dir__
 end
 
-set :database, {adapter: "sqlite3", database: "db/tinderpizza_#{settings.environment}.sqlite3"}
 
 autoload :Topping, settings.root + '/models/topping'
 autoload :Pizza, settings.root + '/models/pizza'
