@@ -1,9 +1,24 @@
+<h1>All Pizzas</h1>
 
-<% @pizzas.each do |pizza| %>
-  <div><b><a href="/pizzas/<%= pizza.id %>"><%= pizza.name %></a></b>
-     <div>
-      $<%= pizza.price_cents * 0.01 %>
-     </div>
+<% if auth_logged_in? %>
+  <div class="row">
+    <a class="btn" href="/pizzas/new">New Pizza<a/>
   </div>
 <% end %>
 
+<% @pizzas.each do |pizza| %>
+  <div class="col s6 m3">
+    <div class="card small">
+      <div class="card-image">
+       <img src="/images/pizza.jpg" alt="" class="circle">
+        <span class="card-title"><%= pizza.name %></span>
+      </div>
+      <div class="card-content">
+        <p>$<%= pizza.price_cents * 0.01 %></p>
+      </div>
+      <div class="card-action">
+        <a href="/pizzas/<%= pizza.id %>">Details</a>
+      </div>
+    </div>
+  </div>
+<% end %>

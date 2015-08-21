@@ -1,12 +1,29 @@
+
+<h1>Login</h1>
+
 <% if @form_error %>
 <div><%= @form_error %></div>
 <% end %>
-<form action="/login" method="post">
-  <div>
-    <div>Login: <input name="login" value="<%= @login %>"/></div>
+
+<form class="col s12" action="/login" method="post">
+  <div class="row">
+    <div class="input-field col s12">
+      <input name="login" type="text" class="validate" value="<%= @login %>">
+      <label for="login">Username</label>
+    </div>
+  </div>   
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input name="password" type="password" class="validate" value="">
+      <label for="password">Password</label>
+    </div>
+  </div>   
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input class="btn" type="submit" name="action" value="Login"/>
+    </div>
   </div>
-  <div>
-    <div>Password: <input type="password" name="password" value=""/></div>
-  </div>
-  <input type="submit" value="Login"/>
 </form>

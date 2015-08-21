@@ -1,19 +1,29 @@
-<h1>Pizza <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
+<h1>Add Topping to <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
 
-<form action="/pizzas/<%= @pizza.id %>/toppings" method="post">
-  <div>
+<form class="col s12" action="/pizzas/<%= @pizza.id %>/toppings" method="post">
+    <div class="row">
 <% if @topping.errors[:name].any? %>
     <div style="color: red;"><%= @topping.errors[:name].first %></div>
 <% end %>
-    <div>Name: <input name="name" value="<%= @topping.name %>"/></div>
-  </div>
+    <div class="input-field col s12">
+      <input name="name" type="text" class="validate" value="<%= @topping.name %>">
+      <label for="name">Name</label>
+    </div>
+  </div>   
 
-  <div>
+  <div class="row">
 <% if @topping.errors[:calories].any? %>
     <div style="color: red;"><%= @topping.errors[:calories].first %></div>
 <% end %>
-    <div>Calories: <input name="calories" value="<%= @topping.calories %>"/></div>
+    <div class="input-field col s12">
+      <input name="calories" type="text" class="validate" value="<%= @topping.calories %>">
+      <label for="calories">Calories</label>
+    </div>
+  </div>   
+
+  <div class="row">
+    <input class="btn" type="submit" name="action" value="Add"/>
+    <a class="btn" href="/pizzas/<%= @pizza.id %>">Cancel<a/>
   </div>
 
-  <input type="submit"/>
 </form>

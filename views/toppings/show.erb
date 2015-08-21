@@ -6,11 +6,12 @@
    </div>
 </div>
 
-<div>
-<a href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>/edit">Edit Topping</a>
-| <form action="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>/delete" method="post">
-  <input type="submit" value="Delete Topping"/>
-</form>
-
-
+<div class="row">
+    <a class="btn" href="/pizzas/<%= @pizza.id %>">Cancel</a>
+    <a class="btn" href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>/edit">Edit</a>
+    <a class="btn post_link" data-form-id="#post_form" href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>/delete">Delete</a>
 </div>
+
+<%# Hidden form for Delete Post via link %>
+<form id="post_form" class="hide" action="" method="post"></form>
+

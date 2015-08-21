@@ -15,32 +15,13 @@ autoload :Pizza, settings.root + '/models/pizza'
 autoload :User, settings.root + '/models/user'
 
 Dir[settings.root + '/controllers/*.rb'].each {|file| require file }
+Dir[settings.root + '/helpers/*.rb'].each {|file| require file }
 
 # Enable Sessions
 enable :sessions
 set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
 
 
-helpers do
-
-  def auth_logged_in?
-    !session[:user_id].nil?
-  end
-
-  def auth_login(user)
-    session[:user_id] = user.id
-  end
-
-  def auth_logout
-    session.destroy
-  end
-
-  def auth_current_user
-    return nil unless session[:user_id]
-    @current_user ||= User.find(session[:user_id])
-  end
-
-end
 
 
 

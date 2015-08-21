@@ -1,26 +1,41 @@
+<h1>Register</h1>
+
 
 <% if @form_error %>
 <div><%= @form_error %></div>
 <% end %>
 
-<form action="/register" method="post">
-  <div>
-    <% if @user.errors[:login].any? %>
-      <div><%= @user.errors[:login].first %></div>
-    <% end %>
-    <div>Login: <input name="login" value="<%= @user.login %>"/></div>
+<form class="col s12" action="/register" method="post">
+    <div class="row">
+<% if @user.errors[:login].any? %>
+    <div style="color: red;"><%= @user.errors[:login].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="login" type="text" class="validate" value="<%= @user.login %>">
+      <label for="login">Username</label>
+    </div>
+  </div>  
+    <div class="row">
+<% if @user.errors[:password].any? %>
+    <div style="color: red;"><%= @user.errors[:password].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="password" type="text" class="validate" value="">
+      <label for="password">Password</label>
+    </div>
+  </div>  
+    <div class="row">
+<% if @user.errors[:password_confirmation].any? %>
+    <div style="color: red;"><%= @user.errors[:password_confirmation].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="password_confirmation" type="text" class="validate" value="">
+      <label for="password_confirmation">Confirmation</label>
+    </div>
+  </div>  
+
+  <div class="row">
+    <input class="btn" type="submit" name="action" value="Register"/>
+    <a class="btn" href="/">Cancel<a/>
   </div>
-  <div>
-    <% if @user.errors[:password].any? %>
-      <div><%= @user.errors[:password].first %></div>
-    <% end %>
-    <div>Password: <input type="password" name="password" value=""/></div>
-  </div>
-  <div>
-    <% if @user.errors[:password_confirmation].any? %>
-      <div><%= @user.errors[:password_confirmation].first %></div>
-    <% end %>
-    <div>Confirm: <input type="password" name="password_confirmation" value=""/></div>
-  </div>
-  <input type="submit" value="Register"/>
 </form>
