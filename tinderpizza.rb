@@ -1,13 +1,18 @@
 require 'sinatra'
 require "sinatra/activerecord"
 require 'sinatra/flash'
-require "better_errors"
 
-configure :development do
-  use BetterErrors::Middleware
-  BetterErrors.application_root = __dir__
+begin
+  require "better_errors"
+
+  configure :development do
+    use BetterErrors::Middleware
+    BetterErrors.application_root = __dir__
+  end
+
+rescue LoadError
+  puts "Skipping better_errors in production"
 end
-
 
 autoload :Topping, settings.root + '/models/topping'
 autoload :Pizza, settings.root + '/models/pizza'
