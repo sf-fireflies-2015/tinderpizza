@@ -9,6 +9,8 @@ gem "sinatra-flash"
 gem "bcrypt-ruby"
 gem "pg"
 
+gem 'thin'
+
 
 group :development do
   gem "better_errors"
