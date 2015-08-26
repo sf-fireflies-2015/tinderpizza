@@ -1,0 +1,14 @@
+<div class="col s6 m3">
+  <div class="card small">
+    <div class="card-image">
+     <img src="/images/pizza.jpg" alt="" class="circle">
+      <span class="card-title"><%= pizza.name %></span>
+    </div>
+    <div class="card-content">
+      <p><%= formating_price pizza.price_cents %></p>
+    </div>
+    <div class="card-action">
+      <a href="/pizzas/<%= pizza.id %>">Details</a>
+    </div>
+  </div>
+</div>

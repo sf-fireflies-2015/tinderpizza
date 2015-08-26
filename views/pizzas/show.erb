@@ -4,16 +4,8 @@
     <span class="card-title"><%= @pizza.name %></span>
   </div>
   <div class="card-content">
-    <p>$<%= @pizza.price_cents * 0.01 %></p>
-    <p><%= @pizza.diameter_inches %> inch</p>
-    <p>Toppings:
-    <ul>
- <% @pizza.toppings.each do |topping| %>
-   <li><a href="/pizzas/<%= @pizza.id %>/toppings/<%= topping.id %>"><%= topping.name %></a></li>
-   </p>
- <% end %>
-</ul>
-
+    <p><%= formating_price @pizza.price_cents %></p>
+    <p><%= formating_diameter @pizza.diameter_inches %></p>
   </div>
   <div class="card-action">
     <a href="/pizzas/<%= @pizza.id %>/toppings/new">Add Topping</a>
@@ -21,6 +13,13 @@
     <a class="post_link" data-form-id="#post_form" data-confirm="Are you sure?" href="/pizzas/<%= @pizza.id %>/delete">Delete</a>
    </div>
 </div>
+
+<h4>Toppings</h4>
+<ul class="collection">
+  <% @pizza.toppings.each do |topping| %>
+    <li class="collection-item"><a href="/pizzas/<%= @pizza.id %>/toppings/<%= topping.id %>"><%= topping.name %></a></li>
+  <% end %>
+</ul>
 
 
 

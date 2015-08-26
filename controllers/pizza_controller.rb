@@ -33,6 +33,7 @@ post '/pizzas/:id' do
 
 
   if @pizza.save
+    flash[:message] = 'Pizza Saved!'
     redirect "/pizzas/#{@pizza.id}"
   else
     erb :'pizzas/edit'
@@ -41,11 +42,10 @@ end
 
 post '/pizzas' do
   @pizza = Pizza.new
-
   # Using params helper
   @pizza.assign_attributes(params_whitelist [:name, :price_cents, :diameter_inches])
-
   if @pizza.save
+    flash[:message] = 'Pizza Added!'
     redirect "/pizzas/#{@pizza.id}"
   else
     erb :'pizzas/new'
@@ -55,7 +55,7 @@ end
 post '/pizzas/:id/delete' do
   id = params[:id]
   @pizza = Pizza.find(id)
-  flash[:message]= "#{@pizza.name} deleted"
+  flash[:message]= "#{@pizza.name} Deleted!"
   @pizza.destroy
   redirect "/pizzas"
 end
