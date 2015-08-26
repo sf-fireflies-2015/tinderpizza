@@ -2,23 +2,12 @@
 
 <% if auth_logged_in? %>
   <div class="row">
-    <a class="btn" href="/pizzas/new">New Pizza<a/>
+    <a class="btn" href="/pizzas/new">New Pizza</a>
   </div>
 <% end %>
 
+<div id="pizzas" class="row">
 <% @pizzas.each do |pizza| %>
-  <div class="col s6 m3">
-    <div class="card small">
-      <div class="card-image">
-       <img src="/images/pizza.jpg" alt="" class="circle">
-        <span class="card-title"><%= pizza.name %></span>
-      </div>
-      <div class="card-content">
-        <p>$<%= pizza.price_cents * 0.01 %></p>
-      </div>
-      <div class="card-action">
-        <a href="/pizzas/<%= pizza.id %>">Details</a>
-      </div>
-    </div>
-  </div>
+  <%= erb :'pizzas/_item', locals: {:pizza => pizza } %>
 <% end %>
+</div>

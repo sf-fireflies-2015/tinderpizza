@@ -62,3 +62,9 @@ end
   * ``RACK_ENV=test rake db:migrate``
 * Create specs in folders underneath ``./spec`` folder
 * ``bundle exec rspec``
+
+# 2.2.3.P Ajax Prep
+* [Use a partial to render each pizza](http://www.sinatrarb.com/faq.html#partials)
+* Use a partial for the pizza form
+* Use helper to format prices
+

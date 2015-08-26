@@ -1,0 +1,36 @@
+
+<form class="col s12" action="<%= pizza.id.nil? ? '/pizzas' : "/pizzas/#{pizza.id}" %>" method="post">
+  <div class="row">
+<% if pizza.errors[:name].any? %>
+    <div style="color: red;"><%= pizza.errors[:name].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="name" type="text" class="validate" value="<%= pizza.name %>">
+      <label for="name">Name</label>
+    </div>
+  </div>   
+
+
+  <div class="row">
+<% if pizza.errors[:diameter_inches].any? %>
+    <div style="color: red;"><%= pizza.errors[:diameter_inches].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="diameter_inches" type="text" class="validate" value="<%= pizza.diameter_inches %>">
+      <label for="diameter_inches">Diameter</label>
+    </div>
+  </div>   
+
+
+  <div class="row">
+<% if pizza.errors[:price_cents].any? %>
+    <div style="color: red;"><%= pizza.errors[:price_cents].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="price_cents" type="text" class="validate" value="<%= pizza.price_cents %>">
+      <label for="price_cents">Price</label>
+    </div>
+  </div>   
+
+  <input class="btn" type="submit" name="action" value="<%= pizza.id.nil? ? 'Add' : 'Save' %>"/>
+</form>

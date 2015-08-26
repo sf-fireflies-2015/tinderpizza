@@ -1,8 +1,8 @@
-<h1>Tinder Pizza Home Page</h1>
 <h2>Top Pizzas</h2>
-  <ul>
-<% @pizzas.each do |pizza| %>
-   <li><%= pizza.name %> $<%= pizza.price_cents * 0.01 %></li>
-<% end %>
-</ul>
+
+<div id="pizzas" class="row">
+  <% @pizzas.each do |pizza| %>
+    <%= erb :'pizzas/_item', locals: {:pizza => pizza } %>
+  <% end %>
+</div>
 
