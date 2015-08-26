@@ -8,7 +8,11 @@ end
 
 get '/pizzas/new' do
   @pizza = Pizza.new
-  erb :'pizzas/new'
+  if request.xhr?
+    erb :'pizzas/_form', :layout => false, :locals => {:pizza => @pizza }
+  else
+    erb :'pizzas/new'
+  end
 end
 
 

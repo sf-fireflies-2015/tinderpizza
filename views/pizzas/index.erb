@@ -2,7 +2,9 @@
 
 <% if auth_logged_in? %>
   <div class="row">
-    <a class="btn" href="/pizzas/new">New Pizza</a>
+    <a class="btn" id="new-pizza-form-container-button" href="/pizzas/new">New Pizza</a>
+    <!-- Hidden Div for our form -->
+    <div id="new-pizza-form-container" style="display: none;"></div>
   </div>
 <% end %>
 

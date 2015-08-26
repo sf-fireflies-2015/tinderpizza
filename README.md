@@ -73,7 +73,7 @@ end
 * [8 Ball Example](https://github.com/stujo/javascript-sinatra-ajax-8ball)
 * How do I use AJAX to post a form?
 * [Calculator Example](https://github.com/stujo/javascript-sinatra-ajax-calculator)
-* Tinder Pizza Add Pizza
+* Tinder Pizza Add Pizza via Ajax
 
 
 
