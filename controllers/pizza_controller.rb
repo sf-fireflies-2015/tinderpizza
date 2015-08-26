@@ -42,14 +42,8 @@ end
 
 post '/pizzas' do
   @pizza = Pizza.new
-
-  p params
-
   # Using params helper
   @pizza.assign_attributes(params_whitelist [:name, :price_cents, :diameter_inches])
-
-  p @pizza
-
   if @pizza.save
     flash[:message] = 'Pizza Added!'
     redirect "/pizzas/#{@pizza.id}"
