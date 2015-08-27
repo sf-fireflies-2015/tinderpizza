@@ -25,8 +25,6 @@ $(function(){
     promise.done(function(data){
       // Stuff the form into our waiting div and show it
       $newPizzaContainer.html(data);
-
-
     });
     
   });
@@ -57,6 +55,14 @@ $(function(){
   });
 
 
+
+  $('#new-topping-form-container-button').click(function(e){
+    e.preventDefault();
+    console.log(e);
+
+    // Materialize Specific Code...
+    $('#new-topping-modal').openModal();
+  });
   
 
   // Hook up all the links which are supposed to submit via post 

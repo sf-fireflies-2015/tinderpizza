@@ -1,26 +1,6 @@
-
 <h1>Pizza <a href="/pizzas/<%= @pizza.id %>"><%= @pizza.name %></a></h1>
 
-<h1>Topping <%= @topping.name %></h1>
+<div id="edit_topping_container">
+  <%= erb :'toppings/_form', locals: {:topping => @topping, :pizza => @pizza } %>
+</div>
 
-<form action="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>" method="post">
-  <div>
-<% if @topping.errors[:name].any? %>
-    <div style="color: red;"><%= @topping.errors[:name].first %></div>
-<% end %>
-
-    <div>Name: <input name="name" value="<%= @topping.name %>"/></div>
-  </div>
-    
-  <div>
-<% if @topping.errors[:calories].any? %>
-    <div style="color: red;"><%= @topping.errors[:calories].first %></div>
-<% end %>
-    <div>Calories: <input name="calories" value="<%= @topping.calories %>"/></div>
-  </div>
-
-  <div class="row">
-    <input class="btn" type="submit" name="action" value="Save"/>
-    <a class="btn" href="/pizzas/<%= @pizza.id %>/toppings/<%= @topping.id %>">Cancel<a/>
-  </div>
-</form>
