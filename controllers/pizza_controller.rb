@@ -35,7 +35,6 @@ post '/pizzas/:id' do
   # Using params helper
   @pizza.assign_attributes(params_whitelist [:name, :price_cents, :diameter_inches])
 
-
   if @pizza.save
     flash[:message] = 'Pizza Saved!'
     redirect "/pizzas/#{@pizza.id}"
@@ -48,11 +47,21 @@ post '/pizzas' do
   @pizza = Pizza.new
   # Using params helper
   @pizza.assign_attributes(params_whitelist [:name, :price_cents, :diameter_inches])
+
   if @pizza.save
-    flash[:message] = 'Pizza Added!'
-    redirect "/pizzas/#{@pizza.id}"
+
+    if request.xhr?
+      erb :'pizzas/_item', :layout => false, :locals => {:pizza => @pizza }
+    else
+      flash[:message] = 'Pizza Added!'
+      redirect "/pizzas/#{@pizza.id}"
+    end
   else
-    erb :'pizzas/new'
+    if request.xhr?
+      halt 400, erb(:'pizzas/_form', :layout => false, :locals => {:pizza => @pizza })
+    else
+      erb :'pizzas/new'
+    end
   end  
 end
 
