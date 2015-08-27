@@ -1,0 +1,30 @@
+<form  class="col s12" action="<%= topping.id.nil? ? 
+"/pizzas/#{ pizza.id }/toppings" :
+"/pizzas/#{ pizza.id }/toppings/#{ topping.id }" %>" 
+method="post">
+
+  <div class="row">
+<% if topping.errors[:name].any? %>
+    <div style="color: red;"><%= topping.errors[:name].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="name" type="text" class="validate" value="<%= topping.name %>">
+      <label for="name">Name</label>
+    </div>
+  </div>  
+
+  <div class="row">
+<% if topping.errors[:calories].any? %>
+    <div style="color: red;"><%= topping.errors[:calories].first %></div>
+<% end %>
+    <div class="input-field col s12">
+      <input name="calories" type="text" class="validate" value="<%= topping.calories %>">
+      <label for="calories">Calories</label>
+    </div>
+  </div>  
+
+  <div class="row">
+    <input class="btn" type="submit" name="action" value="<%= topping.id.nil? ? "Add" : "Save" %>"/>
+    <a class="btn" href="/pizzas/<%= pizza.id %>">Cancel<a/>
+  </div>
+</form>

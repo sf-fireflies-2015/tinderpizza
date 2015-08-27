@@ -8,7 +8,7 @@
     <p><%= formating_diameter @pizza.diameter_inches %></p>
   </div>
   <div class="card-action">
-    <a href="/pizzas/<%= @pizza.id %>/toppings/new">Add Topping</a>
+    <a id="new-topping-form-container-button" href="/pizzas/<%= @pizza.id %>/toppings/new">Add Topping</a>
     <a href="/pizzas/<%= @pizza.id %>/edit">Edit</a>
     <a class="post_link" data-form-id="#post_form" data-confirm="Are you sure?" href="/pizzas/<%= @pizza.id %>/delete">Delete</a>
    </div>
@@ -20,6 +20,13 @@
     <li class="collection-item"><a href="/pizzas/<%= @pizza.id %>/toppings/<%= topping.id %>"><%= topping.name %></a></li>
   <% end %>
 </ul>
+
+ <!-- Modal Structure -->
+  <div id="new-topping-modal" class="modal">
+    <div class="modal-content">
+      <%= erb :'toppings/_form', locals: {:pizza => @pizza, :topping => Topping.new } %>
+    </div>
+  </div>
 
 
 

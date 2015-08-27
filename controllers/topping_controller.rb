@@ -60,6 +60,6 @@ post '/pizzas/:pizza_id/toppings/:id/delete' do
   @topping = @pizza.toppings.find(params[:id])
   flash[:message] = "#{@topping.name} removed"
   @topping.destroy
-  redirect "/pizzas/#{@pizza.id}/toppings"
+  redirect "/pizzas/#{@pizza.id}"
 end
 
