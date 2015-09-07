@@ -22,9 +22,9 @@ $(function(){
       $newPizzaContainer.removeClass('loading').empty();
     });
 
-    promise.done(function(data){
+    promise.done(function(htmlOfForm){
       // Stuff the form into our waiting div and show it
-      $newPizzaContainer.html(data);
+      $newPizzaContainer.html(htmlOfForm);
     });
     
   });
@@ -35,6 +35,7 @@ $(function(){
     e.preventDefault();
     var $form = $(e.target);
     var promise = $.post('/pizzas', $form.serialize());
+
     promise.done(function(dataHtml){
       // All is well!!
       //console.log(dataHtml);
